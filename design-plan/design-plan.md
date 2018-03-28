@@ -25,7 +25,7 @@ I've selected Abby as my persona. I decided to choose Abby because she has oppos
   * *INT: NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE*
 * field 2: file_name
   * *TEXT NOT NULL*
-* field 3: description  
+* field 3: user_id  
   * *TEXT*
 * field 4: citation  
   * *TEXT NOT NULL*
@@ -52,8 +52,6 @@ I've selected Abby as my persona. I decided to choose Abby because she has oppos
 * field 2: image_id
   * *INT*
 * field 3: tag_id
-  * *INT*
-* field 4: user_id
   * *INT*
 
 ## 4. Database Query Plan

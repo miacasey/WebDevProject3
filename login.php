@@ -1,15 +1,47 @@
-<?php include('includes/init.php'); ?>
+<?php
+include("includes/init.php");
+
+// declare the current location, utilized in header.php
+$current_page_id="login";
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="styles/all.css" media="all" />
 
-  <title>Home</title>
+  <title>Log in- <?php echo $title;?></title>
 </head>
 
 <body>
-<?php include('includes/header.php'); ?>
+  <?php include("includes/header.php");?>
+
+  <div id="content-wrap">
+    <h1>Log in</h1>
+
+    <?php
+    print_messages();
+    ?>
+
+    <form id="galleryLogin" action="login.php" method="post">
+      <ul>
+        <li>
+          <label>Username:</label>
+          <input type="text" name="username" required/>
+        </li>
+        <li>
+          <label>Password:</label>
+          <input type="password" name="password" required/>
+        </li>
+        <li>
+          <button name="login" type="submit">Log In</button>
+        </li>
+      </ul>
+    </form>
+  </div>
+
 </body>
+
 </html>
