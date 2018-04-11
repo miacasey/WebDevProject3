@@ -2,14 +2,15 @@
 include("includes/init.php");
 
 // current location used in header.php
-$current_page_id="logout";
+$current_page_id= 'logout';
 
-// log out user and end session (see init.php)
-log_out();
 
 // return message to user
-if (!$current_user) {
+if (check_login() != NULL) {
+  log_out();
   record_message("You've been successfully logged out.");
+} else {
+  record_message("You must be logged in in order to log out.");
 }
 ?>
 <!DOCTYPE html>

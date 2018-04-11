@@ -42,22 +42,29 @@ if ($upload_user != NULL) {
       // if the query is executed we move the uploaded file into our database and uploads/images folder
       if ($result) {
         $file_id = $db->lastInsertId("id");
-        if (move_uploaded_file($upload_info["tmp_name"], BOX_UPLOADS_PATH . "$file_id.$upload_ext")){
-          array_push($messages, "Your file has been uploaded.");
+        // add tags and relationships to the tags table and images_tags table
+        $tags= array($_POST['tag1'], $_POST['tag2'], $_POST['tag3']);
+        if (move_uploaded_file($upload_info["tmp_name"], BOX_UPLOADS_PATH . "$upload_name")){
+          foreach ($tags as $tag){
+            if ($tag != NULL) {
+              add_tag($tag, $file_id);
+            }
+          }
+          array_push($messages, "Your image has been uploaded.");
         }
       } // if query is not executed, send a failure message to the user
       else {
-        array_push($messages, "Failed to upload file.");
+        array_push($messages, "Failed to upload image.");
         print_r($_FILES);
       }
     } // if the file upload had an error, send a failure message to the user
     else {
-      array_push($messages, "Failed to upload file.");
+      array_push($messages, "Failed to upload image.");
       }
   }
 } // if no user is logged in, tell them to log in
 else {
-  array_push($messages, "Log in to upload file.");
+  array_push($messages, "Log in to upload an image.");
 }
 ?>
 <!DOCTYPE html>
@@ -81,7 +88,7 @@ else {
     print_messages();
     ?>
 
-    <form id="uploadFile" action="upload.php" method="post" enctype="multipart/form-data">
+    <form id="uploadFile" action="upload.php" method="post" enctype="multipart/form-data" class="box">
       <ul>
         <label>Upload Image:</label>
         <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>" />
@@ -93,12 +100,9 @@ else {
         <br> <br>
         <label>Tags:</label>
         <br>
-          <input type="text" name="tags[]" />
-          <input type="text" name="tags[]" />
-          <input type="text" name="tags[]" /> <br>
-          <input type="text" name="tags[]" />
-          <input type="text" name="tags[]" />
-          <input type="text" name="tags[]" />
+          <input type="text" name="tag1" />
+          <input type="text" name="tag2" />
+          <input type="text" name="tag3" />
         <br> <br>
           <button name="submit_upload" type="submit">Upload</button>
         </li>

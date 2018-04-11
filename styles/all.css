@@ -1,22 +1,43 @@
 html {
-  font-family: Arial;
+  font-family: Palatino;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  color: #DF744A;
+}
+
+text .bold {
+  font-weight: bold;
 }
 
 body {
-  margin: 0;
+  margin: 1%;
+  background-color: #FFFFFF;
+  padding:2%;
 }
 
 header {
   overflow: hidden;
-  background-color: #f1f1f1;
   padding: 20px 10px;
+  text-align: center;
+  background-color: #8FD8D2;
 }
 
-a {
+.menu {
   float: left;
+  bottom: 1%;
   color: black;
   text-align: center;
-  padding: 12px;
+  padding: 10px;
   text-decoration: none;
   font-size: 18px;
   line-height: 25px;
@@ -34,6 +55,82 @@ a:hover {
 }
 
 #current_page {
-  background-color: dodgerblue;
+  background-color: teal;
   color: white;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 23%;
+  max-width: 23%;
+  padding: 0 4px;
+  margin: 1%;
+}
+
+.column2 {
+  flex: 100%;
+  max-width: 60%;
+  margin-left: 20%;
+}
+
+.column img {
+  vertical-align: middle;
+  width: 100%;
+  margin: 8%;
+  margin-left: 0;
+  border-style: solid;
+  border-color: #DCB239;
+}
+
+.column2 img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  border-style: solid;
+  border-color: #DCB239;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 48%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.box {
+  border-style: none;
+  border-width: 7px;
+  border-color: #FEDCD2;
+  background-color: #FEDCD2;
+  padding: 2%;
+  margin: 0;
+}
+
+.box2 {
+  border-style: none;
+  border-width: 7px;
+  border-color: #FEDCD2;
+  background-color: #FEDCD2;
+  padding: 2%;
+  float: center;
+  width: 100%;
+  margin-top: 4%;
+  text-align: center;
+}
+
+h3 {
+  text-align: right;
+  color: #DF744A;
 }

@@ -25,19 +25,13 @@ $current_page_id="login";
     print_messages();
     ?>
 
-    <form id="galleryLogin" action="login.php" method="post">
+    <form id="galleryLogin" action="login.php" method="post" class="box">
       <ul>
-        <li>
           <label>Username:</label>
-          <input type="text" name="username" required/>
-        </li>
-        <li>
+          <input type="text" name="username" required/> <br> <br>
           <label>Password:</label>
-          <input type="password" name="password" required/>
-        </li>
-        <li>
+          <input type="password" name="password" required/> <br> <br>
           <button name="login" type="submit">Log In</button>
-        </li>
       </ul>
     </form>
   </div>
