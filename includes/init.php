@@ -1,7 +1,7 @@
 <?php
 
 // the title
-$title = "My Photo Gallery";
+$title = "Mia's Photo Gallery";
 
 // associative array that maps page id to page title in header.php
 $pages = array(
